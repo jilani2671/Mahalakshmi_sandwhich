@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f7f5f5;
+            
+        }
+
+        .btn-primary, .btn-danger {
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover, .btn-danger:hover {
+            background-color: #8a92a2;
+            color: #000000;
+        }
+
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn ease 2s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .nav-pills .nav-link {
+            background-color: #6c757d;
+            color: white;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .nav-pills .nav-link:hover {
+            background-color: #5a6268;
+            color: white;
+        }
+
+        .nav-pills .nav-link.active {
+            background-color: #545b62;
+            color: white;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-container:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-color: #dcdcdc;
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+            z-index: 0;
+        }
+
+        .form-container:hover:before {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+        }
+
+        .form-container h4 {
+            z-index: 1;
+            position: relative;
+            font-weight: bold;
+        }
+
+        .form-container form {
+            z-index: 1;
+            position: relative;
+        }
+
+        .form-control {
+            border-radius: 25px;
+        }
+
+        .btn {
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid p-3 bg-primary text-white ">
+        <div class="row">
+            <div class="col">
+                <h6>Thursday, 25 June 2024 &nbsp; 14:25:02</h6>
+            </div>
+            <div class="col text-end">
+                <button class="btn btn-danger">Log Out</button>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <nav>
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link btn-secondary text-white" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-secondary text-white" href="menu.html">Add Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-secondary text-white" href="reports.html">Reports</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-container">
+                    <h4>Add Menu</h4>
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control  h-150" placeholder="Item Name">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control  h-150" placeholder="Item Price">
+                        </div>
+                        <div class="mb-3">
+                            <input type="file" class="form-control">
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-success btn-lg">Add</button>
+                            <button type="reset" class="btn btn-danger btn-lg">Clear</button>
+                        </div>
+                    </form>
+
+                    <h4 class="mt-4">Add Toppings</h4>
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Extra Topping Name">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Extra Topping Price">
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-success btn-lg">Add</button>
+                            <button type="reset" class="btn btn-danger btn-lg">Clear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Items</h4>
+                <div class="card p-3">
+                    <div class="d-flex justify-content-between">
+                        
+                        <div>
+                            <button class="btn btn-secondary">Menu</button>
+                            <button class="btn btn-secondary">Toppings</button>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-2">
+                        <div class ="col-md-9  mt-2">
+                            <span>Veg Sandwich</span>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-success me-2 ">Update</button>
+                            <button class="btn btn-danger">x</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+    <footer class="text-center mt-4 fade-in">
+        <p>© 2024 Code Crafters. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
